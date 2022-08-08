@@ -21,8 +21,7 @@ const printList = () => {
     const obj = JSON.parse(data);
     console.log(`${obj.length} items in your to do list `);
     obj.forEach((item, index) => {
-      console.log(`${index}. ${item}`);
-      // console.log(`${index + 1}. ${item}`);
+      console.log(`${index + 1}. ${item}`);
     });
   });
 };
@@ -31,10 +30,10 @@ const addItem = () => {
   fs.readFile(dataFile, (err, data) => {
     if (err) throw err;
     const obj = JSON.parse(data);
-    args.forEach((item) => obj.push(item));
+    obj.push(args.join(' '));
     fs.writeFile(dataFile, JSON.stringify(obj), (err) => {
       if (err) throw err;
-      console.log(args.join(', ') + ' added to your list');
+      console.log(args.join(' ') + ' added to your list');
     });
   });
 };
@@ -43,7 +42,7 @@ const removeItem = () => {
   fs.readFile(dataFile, (err, data) => {
     if (err) throw err;
     const obj = JSON.parse(data);
-    const index = args[0];
+    const index = parseInt(args[0]) - 1;
     if (index >= 0 && index < obj.length) {
       const removedItem = obj.splice(index, 1);
       fs.writeFile(dataFile, JSON.stringify(obj), (err) => {
@@ -51,7 +50,7 @@ const removeItem = () => {
         console.log(`removed ${removedItem} from task list`);
       });
     } else {
-      console.log('invalid index');
+      console.log('invalid list item');
     }
   });
 };
@@ -60,7 +59,7 @@ const updateItem = () => {
   fs.readFile(dataFile, (err, data) => {
     if (err) throw err;
     const obj = JSON.parse(data);
-    const index = args[0];
+    const index = parseInt(args[0]) - 1;
     if (index >= 0 && index < obj.length) {
       const updatedItem = obj.splice(index, 1, args[1]);
       fs.writeFile(dataFile, JSON.stringify(obj), (err) => {
