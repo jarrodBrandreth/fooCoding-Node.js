@@ -1,12 +1,17 @@
 Usage: node index.js [options]
 FooCoding Node.js Week 2 - Lecture To-Do App
 Options:
+
   list          reads all to-dos list
+
   add [to-do]   adds to list (eg. add laundry)
-                -multiple word tasks need to be covered in quotes (eg. 'go for walk')
-  remove        takes index as argument of item to remove (eg. remove 2) removes second task
-                - if not provided index removes first item from list
+
+  remove        takes number as argument of item to remove (eg. remove 2) removes second task
+
   reset         clears all list items
-  update        takes item to update as first argument and item to update with as second argument                           
+
+  update        takes number to update as first argument and item to update with as second argument
+                (eg. update 4 laundry) replaces task 4 with laundry
+
   help          show this help text
   
