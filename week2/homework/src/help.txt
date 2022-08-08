@@ -1,5 +1,5 @@
 Usage: node index.js [options]
-FooCoding Node.js Week 2 - Lecture To-Do App
+FooCoding Node.js Week 2 - command line to do
 Options:
 
   list          reads all to-dos list
