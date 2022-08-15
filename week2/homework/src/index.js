@@ -49,7 +49,8 @@ const removeItem = () => {
         if (err) throw err;
         console.log(`removed ${removedItem} from task list`);
       });
-    } else {
+    }
+    else {
       console.log('invalid list item');
     }
   });
@@ -66,7 +67,8 @@ const updateItem = () => {
         if (err) throw err;
         console.log(`updated ${updatedItem} with ${args[1]}`);
       });
-    } else {
+    }
+    else {
       console.log('invalid list number');
     }
   });
