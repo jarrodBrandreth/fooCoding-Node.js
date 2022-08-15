@@ -3,8 +3,9 @@
 function clearToDos(todo, request, response) {
   todo.clear()
     .then(res => {
-      console.log(res);
       response.status(200);
+      // console.log(res);
+      response.json(res);
       response.end();
     }).catch(({ message }) => {
       response.status(500);
